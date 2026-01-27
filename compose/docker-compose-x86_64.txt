@@ -1,0 +1,26 @@
+services:
+  ros2:
+    image: isaac_ros_dev-x86_64
+    container_name: aerostack2_container
+    environment:
+      DISPLAY: $DISPLAY
+      XAUTHORITY: $XAUTHORITY
+      SSH_AUTH_SOCK: $SSH_AUTH_SOCK
+    runtime: nvidia
+    privileged: true
+    restart: always
+    volumes:
+      # display related 
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ~/.Xauthority:/root/.Xauthority
+      # ssh related
+      # - $SSH_AUTH_SOCK:$SSH_AUTH_SOCK
+      # git
+      - ~/.gitconfig:/root/.gitconfig_local
+      - ~/aerostack2_ws_docker:/root/aerostack2_ws
+      - ~/projects_docker:/root/as2_projects
+      - ~/external_libs_docker:/root/external_libs
+      - ~/isaac_ros_common/compose/.bash_profile:/root/.bashrc
+      # working dirs
+    network_mode: "host"
+    command: tail -f /dev/null
