@@ -13,6 +13,8 @@ USER root
 
 # Clean old kitware repos, install system dependencies, ROS tools, and add zenoh repo
 RUN rm -rf /var/lib/apt/lists/* && \
+rm -f /etc/apt/sources.list.d/yarn.list && \
+apt-key del 23E7166788B63E1E && \
 apt-get clean && \
 apt-get update --allow-releaseinfo-change
 
