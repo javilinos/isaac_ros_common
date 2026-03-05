@@ -16,6 +16,8 @@ services:
       - ~/.Xauthority:/root/.Xauthority
       - ~/.gitconfig:/root/.gitconfig_local
       - ~/aerostack2_ws_docker:/root/aerostack2_ws
+      - ~/project_kalibration:/root/project_kalibration
+      - ~/msdk:/root/msdk
       - ~/projects_docker:/root/as2_projects
       - ~/external_libs_docker:/root/external_libs
       - ~/isaac_ros_common/compose/.bash_profile:/root/.bashrc

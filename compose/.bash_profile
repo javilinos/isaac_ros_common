@@ -91,6 +91,9 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -106,3 +109,6 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ACADOS_SOURCE_DIR/lib
 export PYTHONPATH=$PYTHONPATH:$ACADOS_SOURCE_DIR/interfaces/acados_template/
 export PYTHONPATH=$PYTHONPATH:$HOME/external_libs/mpc/
 export ACADOS_C_SOURCE_DIR=$HOME/external_libs/mpc/mpc_generated_code
+xhost +local:docker
+export ROS_LOCALHOST_ONLY=1
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
